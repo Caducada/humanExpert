@@ -6,67 +6,47 @@ from sklearn.preprocessing import LabelEncoder
 
 class ConfidencePredictor:
 
-    def __init__(self, test_image_path, model_path='sound_classifier_model.h5'):
+    def __init__(self, model_path='sound_classifier_model.h5'):
+        self.results = None
         self.model = keras.models.load_model(model_path)
-        self.test_image_path = test_image_path
         
+    def predict_confidence(self, grayscale: np.ndarray):
 
-    def get_category_labels(self, spectrograms_dir="spectograms"):
-        """
-        Get all category labels from the spectrograms directory.
-        
-        Args:
-            spectrograms_dir: Directory containing category subdirectories
-        
-        Returns:
-            categories: List of category names
-        """
-        categories = []
-        for category in os.listdir(spectrograms_dir):
-            category_path = os.path.join(spectrograms_dir, category)
-            if os.path.isdir(category_path):
-                categories.append(category)
-        
-        return sorted(categories)
+        categories = [
+            "cough", "sneeze", "other", "sing", "speech", "laugh",
+            "fast_breathing", "slow_breathing", "snore", "cry", "talk", "fart"
+        ]
 
-    def predict_confidence(self):
-        """
-        Predict confidence scores for all categories for a given spectrogram image.
-        
-        Args:
-            image_path: Path to the spectrogram image
-            model: Loaded Keras model
-            categories: List of category names
-        
-        Returns:
-            results: List of tuples (category, confidence_score) sorted by confidence (highest first)
-        """
-        
-        # Load and preprocess the image
-        image = cv2.imread(self.test_image_path, cv2.IMREAD_GRAYSCALE)
-        
-        categories = self.get_category_labels()
-        
-        if image is None:
-            raise ValueError(f"Could not load image from {self.test_image_path}")
-        
-        # Reshape and normalize
-        image = image.reshape(1, image.shape[0], image.shape[1], 1)
-        image = image / 255.0
-        
-        # Make prediction
-        predictions = self.model.predict(image, verbose=0)
-        confidence_scores = predictions[0]
-        
-        # Create results with category names and confidence scores
-        results = []
-        for category, confidence in zip(categories, confidence_scores):
-            results.append((category, float(confidence)))
-        
-        # Sort by confidence score (highest first)
-        results.sort(key=lambda x: x[1], reverse=True)
-        
+        if grayscale is None or grayscale.ndim != 2:
+            raise ValueError("Input must be a 2D grayscale spectrogram")
+
+        # ✅ MUST match model.summary()
+        TARGET_HEIGHT = 308
+        TARGET_WIDTH = 775
+
+        grayscale = cv2.resize(
+            grayscale,
+            (TARGET_WIDTH, TARGET_HEIGHT),
+            interpolation=cv2.INTER_AREA
+        )
+
+        image = grayscale.astype("float32") / 255.0
+
+        # ✅ REQUIRED: batch + channel dimensions
+        image = image.reshape(1, TARGET_HEIGHT, TARGET_WIDTH, 1)
+
+        predictions = self.model.predict(image, verbose=0)[0]
+
+        results = sorted(
+            zip(categories, predictions),
+            key=lambda x: x[1],
+            reverse=True
+        )
+
+        self.results = results
         return results
+
+
 
     def print_confidence_report(self, results):
         """
@@ -88,7 +68,7 @@ class ConfidencePredictor:
         print("="*50 + "\n")
 
 if __name__ == "__main__":
-    predictor = ConfidencePredictor(r"spectograms\sing\2025-12-13+23-06-54_part2.png")       
+    predictor = ConfidencePredictor("sound_classifier_model.h5")    
     results = predictor.predict_confidence()
     predictor.print_confidence_report(results)
 
