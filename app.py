@@ -36,23 +36,5 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/upload', methods=['POST'])
-def upload_file():
-    if 'file' not in request.files:
-        return redirect(url_for('index'))
-    
-    file = request.files['file']
-    
-    if file.filename == '':
-        return redirect(url_for('index'))
-    
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return f'File {filename} uploaded successfully!'
-    
-    return 'Invalid file. Please upload an MP3 file.'
-
-
 if __name__ == '__main__':
     app.run(debug=True)
