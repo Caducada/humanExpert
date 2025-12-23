@@ -14,7 +14,7 @@ class ConfidencePredictor:
 
         categories = [
             "burp", "cough", "cry", "fart", "fast_breathing", "laugh", "other",
-            "scream", "sing", "slow_breathing", "sneeze", "snore", "talk"
+            "scream", "sing", "slow_breathing", "sneeze", "snore", "talk", "yawn"
         ]
 
         if grayscale is None or grayscale.ndim != 2:

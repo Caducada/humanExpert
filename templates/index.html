@@ -1,50 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>MP3 Upload</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        .container {
-            border: 1px solid #ddd;
-            padding: 30px;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        input[type="file"] {
-            display: block;
-            margin: 20px 0;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Upload MP3 File</h1>
-        <form method="POST" action="/" enctype="multipart/form-data">
-            <input type="file" name="file" accept=".mp3" required>
-            <input type="hidden" name="processFile" value="True">
-            <button type="submit">Upload</button>
-        </form>
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+    {% block content %}
+        <div class="bubbleBox">
+            <div class="textBox">
+            <p>Hello! My name is Gallup and I am a world-renowned human expert.
+                By uploading an audio file to this website,
+                I can easely identify if that file contains a sound made by a human</p>
+            </div>
+        </div>
+        <div class="bbulk">
+            <div class="niceBox">
+                <h2>Upload file here</h2>
+                <form method="POST" action="/" enctype="multipart/form-data">
+                    <label for="file-upload" class="file-label">
+                        <img src="{{ url_for('static', filename='imgs/planeticon.png') }}" alt="Upload file">
+                    </label>
+                        <input
+                            id="file-upload"
+                            type="file"
+                            name="file"
+                            accept=".mp3"
+                            required
+                            onchange="this.form.submit()"
+                        >
+                        <input type="hidden" name="processFile" value="True">
+                </form>
+            </div>
+            <img src="{{ url_for('static', filename='imgs/Gallup.png') }}" alt="Gallup is missing" id="gallup">
+        </div>
+    {% endblock %}

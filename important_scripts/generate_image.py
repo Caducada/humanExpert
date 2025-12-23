@@ -30,7 +30,6 @@ class SpectrogramGenerator:
             repeats = int(np.ceil(target_samples / len(y)))
             y = np.tile(y, repeats)[:target_samples]
 
-        # 🔥 High-resolution Mel spectrogram
         mel = librosa.feature.melspectrogram(
             y=y,
             sr=sr,
@@ -43,7 +42,6 @@ class SpectrogramGenerator:
 
         mel_db = librosa.power_to_db(mel, ref=np.max)
 
-        # Normalize to 0–255
         mel_norm = (mel_db - mel_db.min()) / (mel_db.max() - mel_db.min())
         grayscale = (mel_norm * 255).astype(np.uint8)
 
