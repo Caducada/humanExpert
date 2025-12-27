@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for
-from important_scripts import confidence, generate_image
-from werkzeug.utils import secure_filename
 import os
+from werkzeug.utils import secure_filename
+from important_scripts import confidence, generate_image
+from flask import Flask, render_template, request, redirect, url_for
 
 
 

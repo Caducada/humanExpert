@@ -1,7 +1,7 @@
 import io
 import cv2
-import numpy as np
 import librosa
+import numpy as np
 from werkzeug.datastructures import FileStorage
 
 class SpectrogramGenerator:

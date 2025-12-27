@@ -1,0 +1,240 @@
+@media (min-width: 2500px) {
+    .footer {
+        height: 800%;
+    }
+}
+
+@media (min-width: 3000px) {
+    .footer {
+        height: 1200%;
+    }
+}
+
+
+@media (max-width: 1500px) {
+    .bubbleBox{
+        margin-left: 200px;
+    }
+
+    .niceBox{
+        margin-right: 150px;
+    }
+
+    #gallup{
+        margin-left: 150px;
+    }
+
+    #gallupInfo{
+        margin-left: 25px;
+    }
+
+    .cbulk {
+        width: 95%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .bubbleBox{
+        margin-left: 100px;
+    }
+
+    .niceBox{
+        margin-right: 50px;
+    }
+
+    #gallup{
+        margin-left: 50px;
+    }
+
+    #gallupInfo{
+        width: 275px;
+        height: 50%;
+        margin-top: 400px;
+    }
+
+
+    .infoBox {
+        width: 450px;
+        height: 400px;
+        margin-top: 350px;
+    }
+
+    .infoBoxContent p{
+        font-size: 15px;
+    }
+
+    .infoBox h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+@media (max-width: 1100px) {
+
+    #gallup {
+        margin-left: 5px;
+        width: 300px;
+        height: 85%;
+    }
+
+    .bubbleBox{
+        margin-left: 5%;
+        width: 600px;
+        height: 30%;
+        background-size: 90%;
+        font-size: 15px;
+        margin-bottom: 0;
+        margin-top: 20%;
+        padding-top: 5%;
+    }
+
+    .niceBox{
+        width: 350px;
+        height: 300px;
+        margin-top: 0px;
+    }
+
+    .file-label img {
+        width: 200px;          
+    }
+
+    form {
+        width: 60%;
+    }
+}
+
+@media (max-width: 900px) {
+
+    h3 {
+        font-size: 150%;
+    }
+
+    h3 img {
+        width: 75px;
+        height: 50px;
+        margin-top: 15px;
+    }
+
+    nav {
+        margin-top: 35px;
+    }
+
+    a {
+        font-size: 10px;
+    }
+
+    .bulk {
+        height: 1000px;
+    }
+
+    .bubbleBox{
+        display: none;
+        font-size: 90%;
+    }
+
+    .bbulk{
+        display: none;
+    }
+
+    .bulk{
+        padding-top: 5%;
+    }
+
+    .tbulk{
+        display: block;
+        width: 60%;
+        height: 30%;
+        margin: auto;
+    }
+
+    .niceBox{
+        width: 100%;
+        height: 120%;
+        margin: 0px;
+        margin-top: 15%;
+        }
+
+    .cbubbleBox{
+        display: block;
+        margin: auto;
+        margin-top: 25%;
+        width: 70%;
+        height: 20%;
+        background: url("/static/imgs/centerBubble.png");
+        background-size: 70%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        text-align: center;
+        font-size: 75%;
+        font-family: Turret Road;
+        font-weight: bold;
+        animation: fromLeft 1.5s;
+        padding: 5px;
+        padding-top: 5%;
+    }
+
+
+    form {
+        width: 40%;
+    }
+
+    .rGallup{
+        display: block;
+        width: 60%;
+        height: 40%;
+        margin: auto;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .tbulk{
+        width: 60%;
+        height: 25%;
+    }
+
+    .cbubbleBox{
+        font-size: 65%;
+    }
+
+    .cbubbleBox p {
+        margin-top: 10%;
+    }
+
+    form {
+        width: 50%;
+    }
+
+    a {
+        margin-right: 20px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .tbulk{
+        width: 75%;
+        height: 25%;
+    }
+    form {
+        width: 50%;
+    }
+
+    h3 {
+        font-size: 90%;
+    }
+
+    .cbubbleBox{
+        font-size: 60%;
+        width: 100%;
+    }
+
+    .cbubbleBox p {
+        margin-top: 10%;
+    }
+    
+
+}

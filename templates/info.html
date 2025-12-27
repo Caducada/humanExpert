@@ -1,3 +1,18 @@
 {% extends "base.html" %}
-    {% block content %}
-    {% endblock %}
+{% block content %}
+    <div class="cbulk">
+        <img src="{{ url_for('static', filename='imgs/Gallup.png') }}" alt="Gallup is missing" id="gallupInfo">
+        <div class="infoBox">
+            <h2>About me</h2>
+                <div class="infoShell">           
+                    <div class="infoBoxContent">
+                        <p>Greetings! I am Gallup, your friendly neighborhood human expert hailing from the distant planet of Zogtron. With years of experience in identifying human sounds, I've honed my skills to perfection.</p>
+                        <p>My mission is to help you determine whether the audio files you upload contain sounds made by humans. Whether it's a laugh, a cry, or even a sneeze, I'm here to assist you in your quest for knowledge.</p>
+                        <p>Feel free to explore the website and upload your audio files. Together, we can unravel the mysteries of human sounds!</p>
+                        <p>Stay curious, and may the cosmic vibes be with you!</p>
+                        <p>Best regards,<br>Gallup</p>
+                    </div>
+                </div> 
+        </div>
+    </div>
+{% endblock %}

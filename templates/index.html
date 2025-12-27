@@ -1,30 +1,66 @@
 {% extends "base.html" %}
-    {% block content %}
-        <div class="bubbleBox">
-            <div class="textBox">
-            <p>Hello! My name is Gallup and I am a world-renowned human expert.
-                By uploading an audio file to this website,
-                I can easely identify if that file contains a sound made by a human</p>
-            </div>
+{% block content %}
+    <div class="bubbleBox">
+        <div class="textBox">
+        <p>Hello! My name is Gallup and I am a world-renowned human expert.
+            By uploading an audio file to this website,
+            I can easely identify if that file contains a sound made by a human</p>
         </div>
-        <div class="bbulk">
-            <div class="niceBox">
-                <h2>Upload file here</h2>
-                <form method="POST" action="/" enctype="multipart/form-data">
-                    <label for="file-upload" class="file-label">
-                        <img src="{{ url_for('static', filename='imgs/planeticon.png') }}" alt="Upload file">
-                    </label>
-                        <input
-                            id="file-upload"
-                            type="file"
-                            name="file"
-                            accept=".mp3"
-                            required
-                            onchange="this.form.submit()"
-                        >
-                        <input type="hidden" name="processFile" value="True">
-                </form>
-            </div>
-            <img src="{{ url_for('static', filename='imgs/Gallup.png') }}" alt="Gallup is missing" id="gallup">
+    </div>
+    <div class="bbulk">
+        <div class="niceBox">
+            <h2>Upload file here</h2>
+            <form method="POST" action="/" enctype="multipart/form-data">
+                <label for="file-upload" class="file-label">
+                    <img src="{{ url_for('static', filename='imgs/planeticon.png') }}" alt="Upload file">
+                </label>
+                    <input
+                        id="file-upload"
+                        type="file"
+                        name="file"
+                        accept=".mp3"
+                        required
+                        onchange="this.form.submit()"
+                    >
+                    <input type="hidden" name="processFile" value="True">
+            </form>
         </div>
-    {% endblock %}
+        <img src="{{ url_for('static', filename='imgs/Gallup.png') }}" alt="Gallup is missing" id="gallup">
+    </div>
+
+    <div class="tbulk">
+        <div class="niceBox">
+            <h2>Upload file here</h2>
+            <form method="POST" action="/" enctype="multipart/form-data">
+                <label for="file-upload" class="file-label">
+                    <img src="{{ url_for('static', filename='imgs/planeticon.png') }}" alt="Upload file">
+                </label>
+                    <input
+                        id="file-upload"
+                        type="file"
+                        name="file"
+                        accept=".mp3"
+                        required
+                        onchange="this.form.submit()"
+                    >
+                    <input type="hidden" name="processFile" value="True">
+            </form>
+        </div>
+    </div>
+
+    <div class="cbubbleBox">
+        <p>
+                    Hello! 
+            <br>    My name is Gallup and I am a world-renowned
+            <br>    human expert. By uploading an audio file to this website,
+            <br>    I can easely identify if that file contains 
+            <br>    a sound made by a human
+        </p>
+    </div>
+
+    <div class = "rGallup">
+        <img src="{{ url_for('static', filename='imgs/Gallup.png') }}" alt="Gallup is missing">
+    </div>
+
+                                                                                                                                                                                                                                                                                                                                                     
+{% endblock %}

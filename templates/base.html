@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>The human expert</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='imgs/ufo.png') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Didact+Gothic&family=Roboto+Slab:wght@100..900&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Roboto+Slab:wght@100..900&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+    </head>
 
-<head>
-    <title>The human expert</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Didact+Gothic&family=Roboto+Slab:wght@100..900&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Roboto+Slab:wght@100..900&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
-</head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h3>The human expert <img src="{{url_for('static', filename='imgs/ufo.png')}}" alt="ufo missing"></h3>
+                {% if page == "index" %}
+                    <nav>
+                        <a href="{{url_for('index')}}" id="selected">Identify sound</a>
+                        <a href="{{url_for('info')}}" id="unselected">About me</a>
+                    </nav>
+                {% endif %}
 
-<body>
-    <div class="container">
-        <div class="header">
-            <h3>The human expert <img src="{{url_for('static', filename='imgs/ufo.png')}}" alt="ufo missing"></h3>
-            {% if page == "index" %}
-                <nav>
-                    <a href="{{url_for('index')}}" id="selected">Identify sound</a>
-                    <a href="{{url_for('info')}}" id="unselected">About me</a>
-                </nav>
-            {% endif %}
+                {% if page == "info" %}
+                    <nav>
+                        <a href="{{url_for('index')}}" id="unselected">Identify sound</a>
+                        <a href="{{url_for('info')}}" id="selected">About me</a>
+                    </nav>
+                {% endif %}
+            </div>
+            <div class="bulk">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="footer">
+                <p>&copy; 2026 Cosmical Geographic</p>
+            </div>
+            <div class="bedRock">
 
-            {% if page == "info" %}
-                <nav>
-                    <a href="{{url_for('index')}}" id="unselected">Identify sound</a>
-                    <a href="{{url_for('info')}}" id="selected">About me</a>
-                </nav>
-            {% endif %}
+            </div>
         </div>
-        <div class="bulk">
-            {% block content %}
-            {% endblock %}
-        </div>
-        <div class="footer">
-            <p>&copy; 2026 Cosmical Geographic</p>
-        </div>
-        <div class="bedRock">
 
-        </div>
-    </div>
-
-</body>
+    </body>
 
 </html>

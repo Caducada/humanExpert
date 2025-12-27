@@ -13,8 +13,9 @@ class ConfidencePredictor:
     def predict_confidence(self, grayscale: np.ndarray):
 
         categories = [
-            "burp", "cough", "cry", "fart", "fast_breathing", "laugh", "other",
-            "scream", "sing", "slow_breathing", "sneeze", "snore", "talk", "yawn"
+            "breathe", "burp", "cough", "cry", "fart", "laugh", "other",
+            "scream", "sing", "sneeze", "snore", "talk", "whistle", 
+            "yawn"
         ]
 
         if grayscale is None or grayscale.ndim != 2:
