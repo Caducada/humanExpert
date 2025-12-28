@@ -6,6 +6,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="{{url_for('static', filename='imgs/ufo.png') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}">
@@ -16,7 +17,7 @@
     <body>
         <div class="container">
             <div class="header">
-                <h3>The human expert <img src="{{url_for('static', filename='imgs/ufo.png')}}" alt="ufo missing"></h3>
+                <h3><span id=toggle>The human expert</span> <img src="{{url_for('static', filename='imgs/ufo.png')}}" alt="ufo missing"></h3>
                 {% if page == "index" %}
                     <nav>
                         <a href="{{url_for('index')}}" id="selected">Identify sound</a>

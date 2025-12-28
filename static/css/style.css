@@ -16,6 +16,15 @@
   }
 }
 
+@keyframes fromBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -192,7 +201,7 @@ a {
     float: right;
     margin-right: 275px;
     width: 500px;
-    height: 70%;
+    height: 75%;
     background-color: rgb(250, 250, 250);
     border-radius: 25px;
     margin-top: 60px;

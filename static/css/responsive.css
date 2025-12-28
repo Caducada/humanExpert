@@ -1,15 +1,8 @@
-@media (min-width: 2500px) {
-    .footer {
-        height: 800%;
+@media(min-width: 2500px){
+    .footer{
+        height: 800px;
     }
 }
-
-@media (min-width: 3000px) {
-    .footer {
-        height: 1200%;
-    }
-}
-
 
 @media (max-width: 1500px) {
     .bubbleBox{
@@ -152,18 +145,18 @@
         width: 100%;
         height: 120%;
         margin: 0px;
-        margin-top: 15%;
+        margin-top: 5%;
         }
 
     .cbubbleBox{
         display: block;
         margin: auto;
-        margin-top: 25%;
-        width: 70%;
+        margin-top: 20%;
+        width: 80%;
         height: 20%;
         background: url("/static/imgs/centerBubble.png");
         background-size: 70%;
-        background-position: center center;
+        background-position: center bottom;
         background-repeat: no-repeat;
         text-align: center;
         font-size: 75%;
@@ -181,9 +174,14 @@
 
     .rGallup{
         display: block;
-        width: 60%;
+        width: 300PX;
         height: 40%;
         margin: auto;
+        animation: fromBottom 2s;
+    }
+
+    .cbubbleBox p {
+        margin-top: 10%;
     }
 
 }
@@ -200,15 +198,29 @@
     }
 
     .cbubbleBox p {
-        margin-top: 10%;
+        margin-top: 15%;
     }
 
     form {
         width: 50%;
+        margin-top: 5%;
     }
 
     a {
         margin-right: 20px;
+    }
+
+    .file-label {
+        margin: auto;
+        display: block;        /* important */
+        text-align: center;    /* helps inline children */
+    }
+
+    .file-label img {
+        width: 90%;
+        height: auto;
+        display: block;        /* important */
+        margin: 0 auto;        /* centers the image */
     }
 
 }
@@ -233,8 +245,62 @@
     }
 
     .cbubbleBox p {
-        margin-top: 10%;
+        margin-top: 15%;
+    }
+
+    .rGallup{
+        height: 50%;
+        width: 350px;
     }
     
-
 }
+
+@media (max-width: 500px) {
+    .niceBox h2{
+        font-size: 150%;
+        padding-top: 7%;
+    }
+
+    .cbubbleBox {
+        background-size: 100%;
+    }
+
+    #toggle{
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    a {
+        padding: 10px;
+    }
+
+    nav {
+        margin-top: 45px;
+        margin-right: 15px;
+    }
+
+    .niceBox{
+        height: 90%;
+    }
+
+    .niceBox h2{
+        font-size: 100%;
+        height: 10%;
+        padding-top: 3%;
+    }
+
+    .cbubbleBox{
+        margin-top: 0;
+    }
+
+    .cbubbleBox p {
+        margin-top: 20%;
+    }
+
+    .rGallup{
+        margin-top: 10%;
+    }
+}
+
+
