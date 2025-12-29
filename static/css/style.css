@@ -31,6 +31,14 @@ html, body {
   background-color: rgb(160, 160, 160);
 }
 
+.headGallup{
+    display: none;
+}
+
+#ss {
+    display: none;
+}
+
 .rGallup img{
     width: 100%;
     height: 100%;
