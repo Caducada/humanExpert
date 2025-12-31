@@ -2,9 +2,24 @@
 {% block content %}
     <div class="bubbleBox">
         <div class="textBox">
-        <p>Hello! My name is Gallup and I am a world-renowned human expert.
-            By uploading an audio file to this website,
-            I can easely identify if that file contains a sound made by a human</p>
+        {% if category == "null" %}
+            <p>
+                Hello! My name is Gallup and I am a world-renowned human expert.
+                By uploading an audio file to this website,
+                I can easely identify if that file contains a sound made by a human
+            </p>
+        {% elif category == "other"%}
+            <p>
+                After careful analysis, I have determined that the sound in the uploaded audio file
+                does not originate from a human. It is likely produced by other sources such as <span id="category">animals</span>,
+                <span id="category">machinery</span>, or <span id="category">environmental sounds</span>.
+            </p>
+        {% else %}
+            <p>
+                After careful analysis, I have determined that the sound in the uploaded audio file
+                is indeed produced by a human. In this particular case, the sound is a <span id="category">{{ category }}</span>. 
+            </p>
+        {% endif %}
         </div>
     </div>
     <div class="bbulk">
@@ -49,13 +64,24 @@
     </div>
 
     <div class="cbubbleBox">
-        <p>
-                    Hello! 
-            <br>    My name is Gallup and I am a world-renowned
-            <br>    human expert. By uploading an audio file to this website,
-            <br>    I can easely identify if that file contains 
-            <br>    a sound made by a human
-        </p>
+        {% if category == "null" %}
+            <p>
+                Hello! My name is Gallup and I am a world-renowned human expert.
+                By uploading an audio file to this website,
+                I can easely identify if that file contains a sound made by a human
+            </p>
+        {% elif category == "other"%}
+            <p>
+                After careful analysis, I have determined that the sound <br>in the uploaded audio file
+                does not originate from a human. <br>It is likely produced by other sources such <br>as <span id="category">animals</span>,
+                <span id="category">machinery</span>, or <span id="category">environmental sounds</span>.
+            </p>
+        {% else %}
+            <p>
+                After careful analysis, I have determined that <br>the sound in the uploaded audio file
+                is indeed produced <br>by a human. In this particular case, <br>the sound is a <span id="category">{{ category }}</span>. 
+            </p>
+        {% endif %}
     </div>
 
     <div class = "rGallup">

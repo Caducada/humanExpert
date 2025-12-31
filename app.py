@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 ALLOWED_EXTENSIONS = {'mp3'}
-MAX_FILE_SIZE = 50 * 1024 * 1024  # 50 MB
+MAX_FILE_SIZE = 50 * 1024 * 1024  
 
 app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
 
@@ -31,8 +31,9 @@ def index():
         grayscale = generator.filestorage_to_grayscale_spectrogram(file)
         predictor.predict_confidence(grayscale)
         report = predictor.print_confidence_report(predictor.results)
-        return render_template('index.html', report=report, page="index")
-    return render_template('index.html', page="index")
+        predictor.get_top_result(predictor.results)
+        return render_template('index.html', page="index", category=predictor.get_top_result(predictor.results))
+    return render_template('index.html', page="index", category="null")
 
 
 if __name__ == '__main__':

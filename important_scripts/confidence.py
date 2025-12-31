@@ -14,7 +14,7 @@ class ConfidencePredictor:
 
         categories = [
             "breathe", "burp", "cough", "cry", "fart", "laugh", "other",
-            "scream", "sing", "sneeze", "snore", "talk", "whistle", 
+            "scream", "sigh", "sing", "sneeze", "snore", "talk", "whistle", 
             "yawn"
         ]
 
@@ -67,6 +67,14 @@ class ConfidencePredictor:
             print(f"{category:20s} | {bar} | {percentage:6.2f}%")
         
         print("="*50 + "\n")
+        
+    def get_top_result(self, results):
+        if(results[0][1] < 0.5):
+            return "other"
+        elif(results[0][0] == "other"):
+            return "other"
+        else:
+            return results[0][0]
 
 if __name__ == "__main__":
     predictor = ConfidencePredictor("sound_classifier_model.h5")    
