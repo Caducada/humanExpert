@@ -11,13 +11,18 @@
         {% elif category == "other"%}
             <p>
                 After careful analysis, I have determined that the sound in the uploaded audio file
-                does not originate from a human. It is likely produced by other sources such as <span id="category">animals</span>,
-                <span id="category">machinery</span>, or <span id="category">environmental sounds</span>.
+                does not originate from a human. It is likely produced by other sources such as <span id="red">animals</span>,
+                <span id="red">machinery</span>, or <span id="red">environmental sounds</span>.
+            </p>
+        {% elif category == "error"%}
+            <p>
+                There was an <span id="red">error</span> processing your file. Please try again.
+                Make sure the file is not corrupted and is in a supported format like <span id="green">mp3</span>, <span id="green">wav</span>, <span id="green">ogg</span>, <span id="green">m4a</span> or <span id="green">flac</span>.
             </p>
         {% else %}
             <p>
-                After careful analysis, I have determined that the sound in the uploaded audio file
-                is indeed produced by a human. In this particular case, the sound is a <span id="category">{{ category }}</span>. 
+                After careful analysis, I have determined that the contents of the uploaded audio file
+                contains a sound produced by a human. In this particular case, the sound is a <span id="green">{{ category }}</span>. 
             </p>
         {% endif %}
         </div>
@@ -33,7 +38,7 @@
                         id="file-upload"
                         type="file"
                         name="file"
-                        accept=".mp3"
+                        accept=".mp3, .wav, .ogg, .flac, .m4a"
                         required
                         onchange="this.form.submit()"
                     >
@@ -54,7 +59,7 @@
                         id="file-upload"
                         type="file"
                         name="file"
-                        accept=".mp3"
+                        accept=".mp3, .wav, .ogg, .flac, .m4a"
                         required
                         onchange="this.form.submit()"
                     >
@@ -66,20 +71,25 @@
     <div class="cbubbleBox">
         {% if category == "null" %}
             <p>
-                Hello! My name is Gallup and I am a world-renowned human expert.
-                By uploading an audio file to this website,
-                I can easely identify if that file contains a sound made by a human
+                Hello! My name is Gallup and I am <br>a world-renowned human expert.<br>
+                By uploading an audio file to this website,<br>
+                I can easely identify if that <br>file contains a sound made by a human
             </p>
         {% elif category == "other"%}
             <p>
                 After careful analysis, I have determined that the sound <br>in the uploaded audio file
-                does not originate from a human. <br>It is likely produced by other sources such <br>as <span id="category">animals</span>,
-                <span id="category">machinery</span>, or <span id="category">environmental sounds</span>.
+                does not originate from a human. <br>It is likely produced by other sources such <br>as <span id="red">animals</span>,
+                <span id="red">machinery</span>, or <span id="red">environmental sounds</span>.
+            </p>
+        {% elif category == "error"%}
+            <p>
+                There was an <span id="red">error</span> processing your file. Please try again<br>
+                Make sure the file is not corrupted and is <br>in a supported format like <span id="green">mp3</span>, <span id="green">wav</span>, <span id="green">ogg</span>, <span id="green">m4a</span> or <span id="green">flac</span>.
             </p>
         {% else %}
             <p>
-                After careful analysis, I have determined that <br>the sound in the uploaded audio file
-                is indeed produced <br>by a human. In this particular case, <br>the sound is a <span id="category">{{ category }}</span>. 
+                After careful analysis, I have determined that <br>the contents of the uploaded audio file
+                contains a sound <br> produced by a human. In this particular case, <br>the sound is a <span id="green">{{ category }}</span>. 
             </p>
         {% endif %}
     </div>

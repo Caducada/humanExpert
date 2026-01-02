@@ -13,15 +13,14 @@ class ConfidencePredictor:
     def predict_confidence(self, grayscale: np.ndarray):
 
         categories = [
-            "breathe", "burp", "cough", "cry", "fart", "laugh", "other",
-            "scream", "sigh", "sing", "sneeze", "snore", "talk", "whistle", 
+            "breathe", "burp", "cough", "cry", "fart", "gasp", "grunt", "laugh", "other",
+            "scream", "sigh", "song", "sneeze", "snore", "swallow", "person talking", "whistle", 
             "yawn"
         ]
 
         if grayscale is None or grayscale.ndim != 2:
             raise ValueError("Input must be a 2D grayscale spectrogram")
 
-        # ✅ MUST match model.summary()
         TARGET_HEIGHT = 308
         TARGET_WIDTH = 775
 
@@ -33,7 +32,6 @@ class ConfidencePredictor:
 
         image = grayscale.astype("float32") / 255.0
 
-        # ✅ REQUIRED: batch + channel dimensions
         image = image.reshape(1, TARGET_HEIGHT, TARGET_WIDTH, 1)
 
         predictions = self.model.predict(image, verbose=0)[0]

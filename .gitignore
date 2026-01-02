@@ -2,3 +2,5 @@
 __pycache__/
 /sound_classifier_model.h5
 /env
+/cc
+/convert_hub.py

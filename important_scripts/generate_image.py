@@ -14,13 +14,15 @@ class SpectrogramGenerator:
         n_fft: int = 4096,
         hop_length: int = 256
     ):
-        if not file.filename.lower().endswith(".mp3"):
-            raise ValueError("Uploaded file is not an MP3")
 
         audio_bytes = file.read()
         audio_buffer = io.BytesIO(audio_bytes)
-
-        y, sr = librosa.load(audio_buffer, sr=None, mono=True)
+        
+        try:
+            y, sr = librosa.load(audio_buffer, sr=None, mono=True)
+        
+        except Exception as e:
+            return "error"  
 
         target_samples = int(target_duration * sr)
 
