@@ -29,13 +29,17 @@ def index():
         generator = generate_image.SpectrogramGenerator()
         file = request.files['file']
         if file.filename.endswith('.m4a'):
-            file = convert_hub.converter.convert_m4a_to_wav(file)
+            try:
+                file = convert_hub.converter.convert_m4a_to_wav(file)
+            except Exception as e:
+                return render_template('index.html', page="index", category="error")
         grayscale = generator.filestorage_to_grayscale_spectrogram(file)
         if type(grayscale) == str:
             return render_template('index.html', page="index", category="error")
         predictor.predict_confidence(grayscale)
         predictor.get_top_result(predictor.results)
-        return render_template('index.html', page="index", category=predictor.get_top_result(predictor.results))
+        report = predictor.print_confidence_report(predictor.results)
+        return render_template('index.html', page="index", category=predictor.get_top_result(predictor.results), report=report)
     return render_template('index.html', page="index", category="null")
 
 

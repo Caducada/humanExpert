@@ -31,6 +31,14 @@ html, body {
   background-color: rgb(160, 160, 160);
 }
 
+.dripDrop{
+    display: none;
+}
+
+.dripToggle {
+    display: none;
+}
+
 #loader {
   position: fixed;
   top: 0;
@@ -107,6 +115,11 @@ html, body {
     overflow: hidden;
 }
 
+.header a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
 h3 {
     font-family: Turret Road;
     float: left;
@@ -127,10 +140,10 @@ h3 img {
 
 nav {
     float: right;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
-a {
+#selected, #unselected {
     text-decoration: none;
     font-family: Turret Road;
     font-weight: 1000;
@@ -220,11 +233,10 @@ a {
 }
 
 .textBox{
-    width:  80%;
-    height: 50%;
+    width: 80%;
+    height: 80%;
     margin: auto;
-    height: 50%;
-    margin-top: 50px;
+    margin-top: 6%;
     text-align: left;
 }
 

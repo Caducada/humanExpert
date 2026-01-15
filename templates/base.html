@@ -23,12 +23,20 @@
         
         <div id="container">
             <div class="header">
-                <h3><span id="bs">The human expert</span> <span id="ss">Human expert</span><img src="{{url_for('static', filename='imgs/ufo.png')}}" alt="ufo missing"></h3>
+                <h3><span id="bs"><a href="{{url_for('index')}}">The human expert<img src="{{url_for('static', filename='imgs/ufo.png')}}" alt="ufo missing"></h3></a>
                 {% if page == "index" %}
                     <nav>
                         <a href="{{url_for('index')}}" id="selected">Identify sound</a>
                         <a href="{{url_for('info')}}" id="unselected">About me</a>
                     </nav>
+
+                    <nav class="dripDrop">
+                        <ul>
+                            <li id="liSelected"><a href="{{url_for('index')}}" id="selected">Identify sound</a></li>
+                            <li id="liUnselected"><a href="{{url_for('info')}}" id="unselected">About me</a></li>
+                        </ul>
+                    </nav>
+                    <button class="dripToggle" aria-label="Open menu"></button>
                 {% endif %}
 
                 {% if page == "info" %}
@@ -36,6 +44,13 @@
                         <a href="{{url_for('index')}}" id="unselected">Identify sound</a>
                         <a href="{{url_for('info')}}" id="selected">About me</a>
                     </nav>
+                    <nav class="dripDrop">
+                        <ul>
+                            <li id="liUnselected"><a href="{{url_for('index')}}" id="unselected">Identify sound</a></li>
+                            <li id="liSelected"><a href="{{url_for('info')}}" id="selected">About me</a></li>
+                        </ul>
+                    </nav>
+                    <button class="dripToggle" aria-label="Open menu"></button>
                 {% endif %}
             </div>
             
@@ -50,8 +65,9 @@
 
             </div>
         </div>
-
         <script src="{{ url_for('static', filename='scripts/loading.js') }}"></script>
+        <script src="{{ url_for('static', filename='scripts/navBar.js') }}"></script>
+        <script src="{{ url_for('static', filename='scripts/animation.js') }}"></script>
     </body>
 
 </html>

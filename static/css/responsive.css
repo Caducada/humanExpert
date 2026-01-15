@@ -1,6 +1,6 @@
 @media(min-width: 2500px){
     .footer{
-        height: 800px;
+        height: 1000px;
     }
 }
 
@@ -99,6 +99,7 @@
     form {
         width: 60%;
     }
+
 }
 
 @media (max-width: 900px) {
@@ -148,7 +149,7 @@
         margin-top: 25px;
     }
 
-    a {
+    #selected, #unselected {
         font-size: 10px;
     }
 
@@ -190,7 +191,7 @@
         width: 75%;
         height: 20%;
         background: url("/static/imgs/centerBubble.png");
-        background-size: 70%;
+        background-size: 80%;
         background-position: center bottom;
         background-repeat: no-repeat;
         text-align: center;
@@ -200,6 +201,11 @@
         animation: fromLeft 1.5s;
         padding: 5px;
         padding-top: 5%;
+    }
+
+    .textBox{
+        width: 70%;
+        text-align: center;
     }
 
 
@@ -226,8 +232,12 @@
 }
 
 @media (max-width: 800px) {
-    .cbubbleBox {
-        width: 90%;
+    .textBox{
+        margin-top: 8%;
+    }
+    #selected, #unselected {
+        margin-right: 20px;
+        box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 10);
     }
 }
 
@@ -237,23 +247,14 @@
         width: 60%;
         height: 25%;
     }
-
-    .cbubbleBox{
-        width: 100%;
-    }
-
-    .cbubbleBox p {
-        margin-top: 8%;
+    
+    .textBox {
+        margin-top: 6%;
     }
 
     form {
         width: 50%;
         margin-top: 5%;
-    }
-
-    a {
-        margin-right: 20px;
-        box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 10);
     }
 
     .infoBox h2 {
@@ -264,17 +265,28 @@
 
     .file-label {
         margin: auto;
-        display: block;        /* important */
-        text-align: center;    /* helps inline children */
+        display: block;       
+        text-align: center;    
     }
 
     .file-label img {
         width: 90%;
         height: auto;
-        display: block;        /* important */
-        margin: 0 auto;        /* centers the image */
+        display: block;       
+        margin: 0 auto;       
     }
 
+    .cbubbleBox{
+        width: 90%;
+    }
+
+
+}
+
+@media (max-width: 650px) {
+    .textBox{
+        margin-top: 8%;
+    }
 }
 
 @media (max-width: 600px) {
@@ -291,18 +303,14 @@
         font-size: 90%;
     }
 
+    .textBox{
+        margin-top: 14%;
+    }
+
 
     .rGallup{
         height: 50%;
         width: 350px;
-    }
-
-    .cbubbleBox{
-        background-size: 85%;
-    }
-
-    .cbubbleBox p {
-        margin-top: 12%;
     }
 
     #loader img{
@@ -313,9 +321,86 @@
     .header{
         height: 100px;
     }
+
+    .textBox{
+        margin-top: 8%;
+    }
+
+    .cbubbleBox {
+        background-size: 90%;
+    }
+
+    .header > nav:not(.dripDrop) {
+        display: none;
+    }
+
+    .dripToggle {
+        display: block;
+        width: 75px;
+        height: 75px;
+        background: transparent url("/static/imgs/dropIcon.png") no-repeat center;
+        background-size: contain;
+        border: none;
+        cursor: pointer;
+        float: right;;
+        margin-top: 30px;
+        margin-right: 20px;
+    }
+
+    .dripToggle:hover {
+        filter: brightness(70%);
+    }
+
+    .dripDrop {
+        display: block;
+        transition: height 0.5s ease;
+        height: 0px;
+        width: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #000;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .dripDrop ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #selected, #unselected {
+        box-shadow: none;
+        margin: auto;
+        font-size: 200%;
+        border-radius: 0;
+        width: 90%;
+    }
+
+    #selected{
+        filter: brightness(100%);
+    }
+
+    li {
+        background-color: rgb(83, 94, 255);
+        border-radius: 25px;
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    
+    #liSelected{
+        filter: brightness(70%);
+    }
+
+    .niceBox {
+        height: 130%;
+    }
     
 }
-
 
 @media (max-width: 500px) {
 
@@ -336,45 +421,57 @@
     }
 
     .infoBox h2 {
-        font-size: 120%;
-        width: 35%;
+        width: 40%;
+        height: 70%;
+        margin-top: 20px;
         height: 6%;
+        padding: 6%;
+        padding-top: 8%; 
+    }
+
+
+    .textBox{
+        margin-top: 12%;
+    }
+
+    .dripDrop.open{
+        width: 70%;
+    }
+
+    .niceBox {
+        height: 130%;
+    }
+}
+
+@media (max-width: 475px) {
+    .textBox{
+        margin-top: 16%;
     }
 
     .cbubbleBox {
-        background-size: 100%;
-        font-size: 80%;
+        font-size: 75%;
     }
 
-
-    h3 img {
-        width: 50px;
-        height: 30px;
-        margin-top: 25px;
+    .tbulk {
+        width: 100%;
     }
 
-    a {
-        padding: 10px;
-        font-size: 50%;
+    .niceBox {
+        width: 80%;
+        height: 120%;
+        margin-right: 9%;
     }
+}
 
-    nav {
-        margin-top: 20px;
+@media (max-width: 435px) {
+    .textBox{
+        margin-top: 20%;
     }
-
 
 }
 
 @media (max-width: 400px) {
 
-    nav {
-        width: 150px;
-        margin-right: 20px;
-    }
-
-    a {
-        margin-right: 5%;
-    }
 
     .niceBox{
         height: 90%;
@@ -388,10 +485,7 @@
 
     .cbubbleBox{
         margin-top: 0;
-    }
-
-    .cbubbleBox p {
-        margin-top: 20%;
+        font-size: 65%;
     }
 
     .rGallup{
@@ -399,21 +493,46 @@
     }
 
     h3 {
-        margin-left: 5px;
-    }
-
-    #bs {
-        display: none;
-    }
-
-    #ss {
-        display: inline;
+        margin-left: 10px;
     }
 
     .niceBox h2 {
         border-width: 3px;
+        font-size: 130%;
     }
 
+    .textBox{
+        margin-top: 25%;
+    }
+
+    #selected, #unselected {
+        font-size: 150%;
+    }
+
+    .infoBoxContent p{
+        font-size: 10px;
+        margin-left: 5%;
+    }
+
+    .infoBoxContent {
+        padding-top: 10px;
+    }
+
+    .niceBox h2 {
+        height: 15%;
+        padding-top: 8%;
+    }
+
+    .niceBox {
+        height: 110%;
+    }
+
+}
+
+@media (max-width: 365px){
+    .textBox{
+        margin-top: 27%;
+    }
 }
 
 @media (max-width: 350px) {
@@ -421,18 +540,30 @@
     .cbubbleBox{
         font-size: 60%;
     }
-    .cbubbleBox p{
-        margin-top: 30%;
+    .textBox{
+        margin-top: 33%;
     }
 
-    .infoBox h2{
-        padding-top: 4%;
+    h3 img {
+        width: 50px;
+        height: 30px;
+        margin-top: 27px;
     }
 
     .niceBox {
-        height: 80%;
+        height: 90%;
+    }
+
+    .niceBox h2 {
+        font-size: 120%;
+        padding-top: 6%;
     }
 
 }
 
+@media (max-width: 330px){
+    .textBox{
+        margin-top: 35%;
+    }
+}
 

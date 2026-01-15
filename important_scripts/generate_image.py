@@ -24,7 +24,8 @@ class SpectrogramGenerator:
         except Exception as e:
             return "error"  
 
-        target_samples = int(target_duration * sr)
+        target_samples = int(30.0 * sr)
+        y = self.pad_or_trim_audio(y, target_samples)
 
         if len(y) > target_samples:
             y = y[:target_samples]
@@ -48,3 +49,12 @@ class SpectrogramGenerator:
         grayscale = (mel_norm * 255).astype(np.uint8)
 
         return cv2.resize(grayscale, (775, 308))
+    
+    def pad_or_trim_audio(self, y: np.ndarray, target_samples: int) -> np.ndarray:
+        """
+        Trim audio to target length or pad with silence if too short.
+        """
+        if len(y) > target_samples:
+            return y[:target_samples]
+        else:
+            return np.pad(y, (0, target_samples - len(y)))

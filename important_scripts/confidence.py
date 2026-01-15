@@ -13,9 +13,7 @@ class ConfidencePredictor:
     def predict_confidence(self, grayscale: np.ndarray):
 
         categories = [
-            "breathe", "burp", "cough", "cry", "fart", "gasp", "grunt", "laugh", "other",
-            "scream", "sigh", "song", "sneeze", "snore", "swallow", "person talking", "whistle", 
-            "yawn"
+            'beat_box', 'breathe', 'cough', 'laugh', 'other', 'sing', 'talk', 'whistle' 
         ]
 
         if grayscale is None or grayscale.ndim != 2:
@@ -48,12 +46,6 @@ class ConfidencePredictor:
 
 
     def print_confidence_report(self, results):
-        """
-        Print a formatted confidence report.
-        
-        Args:
-            results: List of tuples (category, confidence_score)
-        """
         print("\n" + "="*50)
         print("SOUND CLASSIFICATION CONFIDENCE REPORT")
         print("="*50)
@@ -67,12 +59,27 @@ class ConfidencePredictor:
         print("="*50 + "\n")
         
     def get_top_result(self, results):
-        if(results[0][1] < 0.5):
-            return "other"
-        elif(results[0][0] == "other"):
-            return "other"
-        else:
-            return results[0][0]
+        for result in results:
+            if result == "beat_nox" and result[1] > 0.15:
+                return "beat_nox"
+        
+        for result in results:
+            if result == "cough" and result[1] > 0.25:
+                return "cough"
+        
+        for result in results:
+            if result == "laugh" and result[1] > 0.25:
+                return "laugh"
+            
+        for result in results:
+            if result == "sing" and result[1] > 0.25:
+                return "sing"
+            
+        for result in results:
+            if result == "talk" and result[1] > 0.3:
+                return "talk"
+        
+        return results[0][0]
 
 if __name__ == "__main__":
     predictor = ConfidencePredictor("sound_classifier_model.h5")    
